@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public enum powerupType{
     CIRCLE,
@@ -20,36 +21,31 @@ public class PowerupManager : MonoBehaviour {
     // TEMP;
     [Header("Temp")]
     [SerializeField] private powerupType currentPowerup = powerupType.NONE;
-    [SerializeField] private Transform pointsParent;
-    private Queue<GameObject> points = new Queue<GameObject>();
 
     [Header("Powerup Objects")]
     [SerializeField] private Circle_Powerup circleExplosion;
     [SerializeField] private GameObject traingleWall;
     [SerializeField] private GameObject squareHole;
 
-    private bool canUsePoweup = true;
+    private PlayerMovement playerMovement;
 
     // Start is called before the first frame update
     void Start() {
-        foreach(Transform point in pointsParent){
-            points.Enqueue(point.gameObject);
-        }
-
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update() {
-        if(Input.GetButtonDown(usePowerupKey) && canUsePoweup){
+        if(Input.GetButtonDown(usePowerupKey) && playerMovement.canUsePowerup){
             StartCoroutine(UsePowerup());
         }
     }
 
     IEnumerator UsePowerup(){
-        canUsePoweup = false;
+        playerMovement.canUsePowerup = false;
         // Get Points from trail script
-        foreach(GameObject point in points){
-            var pointPos = point.transform.position;
+        var points = playerMovement.positions.ToArray();
+        foreach(Vector3 pointPos in points) {
             if(currentPowerup == powerupType.CIRCLE){
                 var powerupPrefab = circleExplosion;
                 var powerup = Instantiate(powerupPrefab, pointPos, Quaternion.identity);
@@ -70,6 +66,7 @@ public class PowerupManager : MonoBehaviour {
             Debug.Log("Powerup Spawned: " + currentPowerup);
             yield return new WaitForSeconds(spawnDelay);
         }
-        canUsePoweup = true;
+        playerMovement.canUsePowerup = true;
+        playerMovement.ResetPositions();
     }
 }

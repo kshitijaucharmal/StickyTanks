@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public int maxPoints = 50;
-    public float maxdistpoints = 0.1f;
-    public GameObject prefab;
-    public string p_horizontal;
-    public string p_vertical;
-    public KeyCode keyCode;
+    [SerializeField] private float speed = 5.0f;
+    [SerializeField] private int maxPoints = 50;
+    [SerializeField] private float maxdistpoints = 0.1f;
+    [SerializeField] private string p_horizontal;
+    [SerializeField] private string p_vertical;
+
     private Vector3 lastPosition;
     private LineRenderer lineRenderer;
-    private Queue<Vector3> positions = new Queue<Vector3>();
+
+    [HideInInspector] public Queue<Vector3> positions = new Queue<Vector3>();
+    [HideInInspector] public bool canUsePowerup = true;
    // Health health;
 
     void Start()
@@ -33,36 +34,35 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveHorizontal = Input.GetAxis(p_horizontal);
-        float moveVertical = Input.GetAxis(p_vertical);
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        float moveHorizontal = Input.GetAxisRaw(p_horizontal);
+        float moveVertical = Input.GetAxisRaw(p_vertical);
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical).normalized;
         transform.Translate(movement * speed * Time.deltaTime);
-        if (movement != Vector3.zero)
+        if (movement == Vector3.zero)
         {
-            if (Vector3.Distance(transform.position, lastPosition) > maxdistpoints)
-            {
-                lastPosition = transform.position;
-                positions.Enqueue(transform.position);
-                if (positions.Count > maxPoints)
-                {
-                    positions.Dequeue();
-                }
-                lineRenderer.positionCount = positions.Count;
-                lineRenderer.SetPositions(positions.ToArray());
-            }
+            canUsePowerup = true;
+            return;
         }
-        if (Input.GetKey(keyCode))
+        canUsePowerup = false;
+
+
+        if (Vector3.Distance(transform.position, lastPosition) > maxdistpoints)
         {
-           
-            foreach (Vector3 pos in positions)
+            lastPosition = transform.position;
+            positions.Enqueue(transform.position);
+            if (positions.Count > maxPoints)
             {
-
-                Instantiate(prefab, pos, Quaternion.identity);
-
+                positions.Dequeue();
             }
-            positions.Clear();
-            lineRenderer.positionCount = 0;
+            lineRenderer.positionCount = positions.Count;
+            lineRenderer.SetPositions(positions.ToArray());
         }
 
+    }
+
+    public void ResetPositions()
+    {
+        positions.Clear();
+        lineRenderer.positionCount = 0;
     }
 }

@@ -4944,7 +4944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionTime: 1
-  force: 1000
+  force: 5000
   colorParticles: {fileID: 7611949730768659020}
   player1Mat: {fileID: 2100000, guid: 39ebcdbf7a36593fd9912a69dd357d18, type: 2}
   player2Mat: {fileID: 2100000, guid: 04949bed65e5f6c288a204c54a18fe61, type: 2}

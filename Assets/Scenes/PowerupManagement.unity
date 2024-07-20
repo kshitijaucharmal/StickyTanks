@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571328, b: 0.3069218, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -455,8 +454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857cf29d2fe5dd3a3a7b6ebf9b2d8faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimensions: {x: 20, y: 20}
-  offset: {x: -10, y: -10}
+  dimensions: {x: 30, y: 20}
+  offset: {x: -15, y: -10}
   gap: {x: 0.05, y: 0.05}
   gridBlock: {fileID: 569282771047208940, guid: d5aad6466a920649fa80eeb990100051,
     type: 3}
@@ -682,12 +681,13 @@ GameObject:
   - component: {fileID: 1670708382}
   - component: {fileID: 1670708381}
   - component: {fileID: 1670708380}
+  - component: {fileID: 1670708387}
+  - component: {fileID: 1670708386}
   - component: {fileID: 1670708384}
   - component: {fileID: 1670708385}
-  - component: {fileID: 1670708386}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Player
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -772,7 +772,7 @@ Transform:
   m_GameObject: {fileID: 1670708379}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: 0}
+  m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -793,8 +793,7 @@ MonoBehaviour:
   playerNo: 1
   usePowerupKey: P1_Use
   spawnDelay: 0.1
-  currentPowerup: 2
-  pointsParent: {fileID: 462371499}
+  currentPowerup: 0
   circleExplosion: {fileID: -4751288509947617795, guid: ea80fa1b8b516ec44b6c3deef7272963,
     type: 3}
   traingleWall: {fileID: 7675749741675168883, guid: 4210de070ab0be89495fae8be51dffd7,
@@ -814,12 +813,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  maxPoints: 50
-  maxdistpoints: 0.1
-  prefab: {fileID: 0}
+  maxPoints: 10
+  maxdistpoints: 1
   p_horizontal: P1Horizontal
   p_vertical: P1Vertical
-  keyCode: 0
+  canUsePowerup: 1
 --- !u!120 &1670708386
 LineRenderer:
   serializedVersion: 2
@@ -924,6 +922,33 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!54 &1670708387
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670708379}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1675024779
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,12 +961,13 @@ GameObject:
   - component: {fileID: 1675024782}
   - component: {fileID: 1675024781}
   - component: {fileID: 1675024780}
+  - component: {fileID: 1675024787}
   - component: {fileID: 1675024784}
   - component: {fileID: 1675024785}
   - component: {fileID: 1675024786}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1026,7 +1052,7 @@ Transform:
   m_GameObject: {fileID: 1675024779}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1047,8 +1073,7 @@ MonoBehaviour:
   playerNo: 2
   usePowerupKey: P2_Use
   spawnDelay: 0.1
-  currentPowerup: 0
-  pointsParent: {fileID: 462371499}
+  currentPowerup: 1
   circleExplosion: {fileID: -4751288509947617795, guid: ea80fa1b8b516ec44b6c3deef7272963,
     type: 3}
   traingleWall: {fileID: 7675749741675168883, guid: 4210de070ab0be89495fae8be51dffd7,
@@ -1068,12 +1093,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  maxPoints: 50
-  maxdistpoints: 0.1
-  prefab: {fileID: 0}
+  maxPoints: 10
+  maxdistpoints: 1
   p_horizontal: P2Horizontal
   p_vertical: P2Vertical
-  keyCode: 0
+  canUsePowerup: 1
 --- !u!120 &1675024786
 LineRenderer:
   serializedVersion: 2
@@ -1178,6 +1202,33 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!54 &1675024787
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675024779}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1983324494
 GameObject:
   m_ObjectHideFlags: 0

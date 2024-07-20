@@ -12,7 +12,10 @@ public class Circle_Powerup : MonoBehaviour {
     [Header("Explosion Settings")]
     [SerializeField] private float range = 5f;
 
+    private int playerN;
+
     public void SetPlayer(int playerNo){
+        playerN = playerNo;
         colorParticles.material = playerNo == 1 ? player1Mat : player2Mat;
     }
 
@@ -22,6 +25,10 @@ public class Circle_Powerup : MonoBehaviour {
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);
         foreach(Collider nearObj in colliders){
+            if(nearObj.CompareTag("Player" + playerN))
+            {
+                continue;
+            }
             Rigidbody rb = nearObj.GetComponent<Rigidbody>();
             if(rb != null){
                 rb.AddExplosionForce(force, transform.position, range);
