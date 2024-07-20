@@ -29,10 +29,6 @@ public class Circle_Powerup : MonoBehaviour {
             {
                 continue;
             }
-            else if(nearObj.CompareTag("Player" + (playerN == 1 ? 2 : 1))){
-                var opprb = nearObj.GetComponent<Rigidbody>();
-                opprb.AddForce(transform.up * force, ForceMode.Impulse);
-            }
             Rigidbody rb = nearObj.GetComponent<Rigidbody>();
             if(rb != null){
                 rb.AddExplosionForce(force, transform.position, range);
