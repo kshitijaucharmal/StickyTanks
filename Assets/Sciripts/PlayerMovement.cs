@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,12 +12,13 @@ public class PlayerMovement : MonoBehaviour
     public GameObject prefab;
     public string p_horizontal;
     public string p_vertical;
-    public KeyCode keyCode;
+    public KeyCode place;
+   
     private Vector3 lastPosition;
     private LineRenderer lineRenderer;
     private Queue<Vector3> positions = new Queue<Vector3>();
    // Health health;
-
+    
     void Start()
     {
        // health = new Health(100);
@@ -51,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
                 lineRenderer.SetPositions(positions.ToArray());
             }
         }
-        if (Input.GetKey(keyCode))
+        if (Input.GetKey(place))
         {
            
             foreach (Vector3 pos in positions)

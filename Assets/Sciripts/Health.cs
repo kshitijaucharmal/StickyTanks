@@ -2,7 +2,7 @@ using UnityEngine;
 public class Health 
 {
     int maxHealth;
-    int currentHealth;
+    private int currentHealth;
     public Health(int maxHealth){
         this.maxHealth = maxHealth;
         currentHealth = maxHealth;

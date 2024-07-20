@@ -571,9 +571,11 @@ MonoBehaviour:
   maxPoints: 25
   maxdistpoints: 1
   prefab: {fileID: 9036464666284827220, guid: 6d82c64e9981e3b4395dff4e4cd1595a, type: 3}
+  cooldowntime: 5
   p_horizontal: P1Horizontal
   p_vertical: P1Vertical
-  keyCode: 112
+  place: 112
+  draw: 305
 --- !u!65 &1507851212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -829,9 +831,11 @@ MonoBehaviour:
   maxPoints: 25
   maxdistpoints: 1
   prefab: {fileID: 9036464666284827220, guid: 6d82c64e9981e3b4395dff4e4cd1595a, type: 3}
+  cooldowntime: 5
   p_horizontal: P2Horizontal
   p_vertical: P2Vertical
-  keyCode: 116
+  place: 116
+  draw: 304
 --- !u!65 &1507887065
 BoxCollider:
   m_ObjectHideFlags: 0
