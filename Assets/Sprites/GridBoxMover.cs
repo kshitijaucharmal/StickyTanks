@@ -8,13 +8,15 @@ public class GridBoxMover : MonoBehaviour
     private int currentIndex = 0;
     private bool isMoving = true;
     private Coroutine moveCoroutine;
+    private string lastSelected = "";
+    private string secondLastSelected = "";
 
     void Start()
     {
+        // Set the box's initial position to the first grid point
         if (gridPoints.Length > 0)
         {
             transform.position = gridPoints[0].position;
-            // Start the movement coroutine
             moveCoroutine = StartCoroutine(MoveBox());
         }
     }
@@ -27,7 +29,22 @@ public class GridBoxMover : MonoBehaviour
             {
                 StopCoroutine(moveCoroutine);
             }
-            Debug.Log("Selected shape: " + gridPoints[currentIndex].name);
+
+            // Log the current grid point name
+            string currentName = gridPoints[currentIndex].name;
+            Debug.Log("Selected shape: " + currentName);
+
+            // Check for consecutive "Bomb" or "Wall" selections
+            secondLastSelected = lastSelected;
+            lastSelected = currentName;
+
+            if (lastSelected == secondLastSelected && (lastSelected == "Bomb" || lastSelected == "Wall"))
+            {
+                Debug.Log(lastSelected + " selected twice consecutively");
+            }
+
+            // Restart the movement coroutine
+            moveCoroutine = StartCoroutine(MoveBox());
         }
     }
 
