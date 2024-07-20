@@ -30,11 +30,15 @@ public class Circle_Powerup : MonoBehaviour {
             Rigidbody rb = nearObj.GetComponent<Rigidbody>();
             if(nearObj.CompareTag("Player" + playerN))
             {
+                
                 continue;
             }
             else if(nearObj.CompareTag("Player" + (playerN == 1 ? 2 : 1)))
             {
                 rb.AddForce(transform.up * playerFlyForce, ForceMode.Impulse);
+                PlayerMovement player = nearObj.GetComponent<PlayerMovement>();
+                player.health.TakeDamage(10);
+                
                 continue;
             }
             else if (nearObj.CompareTag("Wall"))

@@ -18,11 +18,14 @@ public class PlayerMovement : MonoBehaviour
 
     [HideInInspector] public Queue<Vector3> positions = new Queue<Vector3>();
     [HideInInspector] public bool canUsePowerup = true;
-   // Health health;
+    [HideInInspector] public Health health;
+    public HealthBar healthbar;
+
 
     void Start()
     {
-       // health = new Health(100);
+        healthbar.SetMaxHealth(100);
+        health = new Health(100,healthbar);
         lastPosition = transform.position;
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 1;
@@ -61,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
             lineRenderer.positionCount = positions.Count;
             lineRenderer.SetPositions(positions.ToArray());
         }
+        
 
     }
 

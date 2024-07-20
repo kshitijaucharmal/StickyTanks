@@ -3,8 +3,10 @@ public class Health
 {
     int maxHealth;
     int currentHealth;
-    public Health(int maxHealth){
+    private HealthBar healthbar;
+    public Health(int maxHealth, HealthBar healthbar){
         this.maxHealth = maxHealth;
+        this.healthbar = healthbar;
         currentHealth = maxHealth;
     }
     public int GetHealth(){
@@ -12,10 +14,12 @@ public class Health
     }
     public void TakeDamage(int damage){
         currentHealth -= damage;
+        healthbar.SetHealth(currentHealth);
         Debug.Log("currentHealth = "+currentHealth);
         if (currentHealth <= 0){
             Die();
         }
+        
     }
     public void Heal(int heal){
         currentHealth += heal;
@@ -23,8 +27,9 @@ public class Health
         if (currentHealth > maxHealth){
             currentHealth = maxHealth;
         }
+        healthbar.SetHealth(currentHealth);
     }
     void Die(){
-
+        Debug.Log("Dead");
     } 
 }
