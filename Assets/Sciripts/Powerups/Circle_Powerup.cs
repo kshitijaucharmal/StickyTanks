@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Circle_Powerup : MonoBehaviour {
 
     [SerializeField] private float explosionTime = 0.5f;
     [SerializeField] private float force = 200f;
+    [SerializeField] private float playerFlyForce = 10f;
     [SerializeField] private ParticleSystemRenderer colorParticles;
 
     [SerializeField] private Material player1Mat;
@@ -25,11 +27,21 @@ public class Circle_Powerup : MonoBehaviour {
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);
         foreach(Collider nearObj in colliders){
+            Rigidbody rb = nearObj.GetComponent<Rigidbody>();
             if(nearObj.CompareTag("Player" + playerN))
             {
                 continue;
             }
-            Rigidbody rb = nearObj.GetComponent<Rigidbody>();
+            else if(nearObj.CompareTag("Player" + (playerN == 1 ? 2 : 1)))
+            {
+                rb.AddForce(transform.up * playerFlyForce, ForceMode.Impulse);
+                continue;
+            }
+            else if (nearObj.CompareTag("Wall"))
+            {
+                rb = nearObj.AddComponent<Rigidbody>();
+            }
+
             if(rb != null){
                 rb.AddExplosionForce(force, transform.position, range);
             }

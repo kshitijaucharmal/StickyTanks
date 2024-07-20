@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5519810765408037996}
   m_Layer: 0
   m_Name: TriangleWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,5 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 0.5
-  heightRange: {x: 2, y: 5}
+  heightRange: {x: 1, y: 2}
   wiggleRange: {x: -1, y: 1}

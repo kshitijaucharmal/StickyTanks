@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
+    [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private Quaternion offsetRot = Quaternion.Euler(0, 270, 0);
     [SerializeField] private int maxPoints = 50;
     [SerializeField] private float maxdistpoints = 0.1f;
     [SerializeField] private string p_horizontal;
@@ -37,13 +39,15 @@ public class PlayerMovement : MonoBehaviour
         float moveHorizontal = Input.GetAxisRaw(p_horizontal);
         float moveVertical = Input.GetAxisRaw(p_vertical);
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical).normalized;
-        transform.Translate(movement * speed * Time.deltaTime);
+        transform.Translate(movement * speed * Time.deltaTime, Space.World);
         if (movement == Vector3.zero)
         {
             canUsePowerup = true;
             return;
         }
-        canUsePowerup = false;
+
+        Quaternion targetRotation = Quaternion.LookRotation(movement, Vector3.up);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation * offsetRot, rotationSpeed * Time.deltaTime);
 
 
         if (Vector3.Distance(transform.position, lastPosition) > maxdistpoints)
