@@ -34,25 +34,31 @@ public class PlayerMovement : MonoBehaviour
         float moveVertical = Input.GetAxis(p_vertical);
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         transform.Translate(movement * speed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position , lastPosition) >maxdistpoints){
-            lastPosition = transform.position;
-            positions.Enqueue(transform.position);
-            if (positions.Count > maxPoints)
+        if (movement != Vector3.zero)
+        {
+            if (Vector3.Distance(transform.position, lastPosition) > maxdistpoints)
             {
-                positions.Dequeue();
+                lastPosition = transform.position;
+                positions.Enqueue(transform.position);
+                if (positions.Count > maxPoints)
+                {
+                    positions.Dequeue();
+                }
+                lineRenderer.positionCount = positions.Count;
+                lineRenderer.SetPositions(positions.ToArray());
             }
-            lineRenderer.positionCount = positions.Count;
-            lineRenderer.SetPositions(positions.ToArray());
         }
-        if (Input.GetKey(KeyCode.P)){
-            foreach(Vector3 pos in positions){
-                
-                GameObject gameObject = Instantiate(prefab, pos, Quaternion.identity);
-                gameObject.transform.parent = transform;
+        if (Input.GetKey(KeyCode.P))
+        {
+            foreach (Vector3 pos in positions)
+            {
+
+                Instantiate(prefab, pos, Quaternion.identity);
+
             }
             positions.Clear();
             lineRenderer.positionCount = 0;
         }
+
     }
 }

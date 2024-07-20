@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 1507851217}
   m_Layer: 0
   m_Name: player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  maxPoints: 50
+  maxPoints: 25
   maxdistpoints: 1
   prefab: {fileID: 9036464666284827220, guid: 6d82c64e9981e3b4395dff4e4cd1595a, type: 3}
   p_horizontal: P1Horizontal
@@ -788,7 +788,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &1507887063
 GameObject:
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 1507887070}
   m_Layer: 0
   m_Name: player2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -825,7 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  maxPoints: 50
+  maxPoints: 25
   maxdistpoints: 1
   prefab: {fileID: 9036464666284827220, guid: 6d82c64e9981e3b4395dff4e4cd1595a, type: 3}
   p_horizontal: P2Horizontal
@@ -1045,7 +1045,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
