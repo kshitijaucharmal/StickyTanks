@@ -11,12 +11,15 @@ public class PlayerMovement : MonoBehaviour
     public GameObject prefab;
     public string p_horizontal;
     public string p_vertical;
+    public KeyCode keyCode;
     private Vector3 lastPosition;
     private LineRenderer lineRenderer;
     private Queue<Vector3> positions = new Queue<Vector3>();
+   // Health health;
 
     void Start()
     {
+       // health = new Health(100);
         lastPosition = transform.position;
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 1;
@@ -48,8 +51,9 @@ public class PlayerMovement : MonoBehaviour
                 lineRenderer.SetPositions(positions.ToArray());
             }
         }
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKey(keyCode))
         {
+           
             foreach (Vector3 pos in positions)
             {
 
