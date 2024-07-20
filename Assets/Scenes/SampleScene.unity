@@ -485,7 +485,7 @@ Transform:
   m_GameObject: {fileID: 462371498}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.72, z: 1.92}
+  m_LocalPosition: {x: 0, y: -0.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -791,11 +791,12 @@ MonoBehaviour:
   playerNo: 1
   usePowerupKey: P1_Use
   spawnDelay: 0.1
-  currentPowerup: 1
+  currentPowerup: 2
   pointsParent: {fileID: 462371499}
   circleExplosion: {fileID: -4751288509947617795, guid: ea80fa1b8b516ec44b6c3deef7272963,
     type: 3}
-  traingleWall: {fileID: 0}
+  traingleWall: {fileID: 7675749741675168883, guid: 4210de070ab0be89495fae8be51dffd7,
+    type: 3}
   squareHole: {fileID: 836416905184613822, guid: b9861762e6b314e7cac8251c98f2bf14,
     type: 3}
 --- !u!1 &1675024779
@@ -923,7 +924,8 @@ MonoBehaviour:
   pointsParent: {fileID: 462371499}
   circleExplosion: {fileID: -4751288509947617795, guid: ea80fa1b8b516ec44b6c3deef7272963,
     type: 3}
-  traingleWall: {fileID: 0}
+  traingleWall: {fileID: 7675749741675168883, guid: 4210de070ab0be89495fae8be51dffd7,
+    type: 3}
   squareHole: {fileID: 836416905184613822, guid: b9861762e6b314e7cac8251c98f2bf14,
     type: 3}
 --- !u!1 &1983324494
