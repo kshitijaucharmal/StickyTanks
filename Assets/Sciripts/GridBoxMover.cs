@@ -46,6 +46,8 @@ public class GridBoxMover : MonoBehaviour
 
             // Restart the movement coroutine
             moveCoroutine = StartCoroutine(MoveBox());
+
+           
         }
     }
 
