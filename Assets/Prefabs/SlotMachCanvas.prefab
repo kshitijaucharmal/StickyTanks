@@ -137,7 +137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
+  m_Texture: {fileID: 2800000, guid: 9bc4e7b52f4e8b24880503ff29821ce8, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
+  m_Texture: {fileID: 2800000, guid: 9bc4e7b52f4e8b24880503ff29821ce8, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+  m_Texture: {fileID: 2800000, guid: 9bc4e7b52f4e8b24880503ff29821ce8, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -382,7 +382,7 @@ MonoBehaviour:
   - {fileID: 5463837324232716304}
   - {fileID: 771525068940515590}
   slot_button: P1_Use
-  timeBtwnSwitch: 0.1
+  timeBtwnSwitch: 0.3
   powerupManager: {fileID: 0}
 --- !u!1 &4221761800970258208
 GameObject:
@@ -751,7 +751,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 10910, guid: 0000000000000000f000000000000000, type: 0}
+  m_Texture: {fileID: 2800000, guid: 9bc4e7b52f4e8b24880503ff29821ce8, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
