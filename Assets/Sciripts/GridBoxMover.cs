@@ -4,14 +4,14 @@ using System.Collections;
 public class GridBoxMover : MonoBehaviour
 {
     public Transform[] gridPoints; // Array of grid points to move between
-    public KeyCode slot_button;
-    public float speed = 1.0f; // Time in seconds between movements
+    public string slot_button;
+    public float timeBtwnSwitch = 1.0f; // Time in seconds between movements
+    public PowerupManager powerupManager; // Reference to PowerupManager
+
     private int currentIndex = 0;
     private bool isMoving = true;
     private Coroutine moveCoroutine;
     private string lastSelected = "";
-    private string secondLastSelected = "";
-    public PowerupManager powerupManager; // Reference to PowerupManager
 
     void Start()
     {
@@ -25,26 +25,30 @@ public class GridBoxMover : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(slot_button))
+        if (Input.GetButtonDown(slot_button))
         {
             if (moveCoroutine != null)
             {
                 StopCoroutine(moveCoroutine);
             }
 
-            // Log the current grid point name
+            // Log the current grid point name 
+            // Shoudn't use name
             string currentName = gridPoints[currentIndex].name;
-            Debug.Log("Selected shape: " + currentName);
 
-            // Check for consecutive "Bomb" or "Wall" or "Fall" selections
-            secondLastSelected = lastSelected;
-            lastSelected = currentName;
-
-            if (lastSelected == secondLastSelected && (lastSelected == "Bomb" || lastSelected == "Wall" || lastSelected == "Fall"))
+            PowerupType type = PowerupType.NONE;
+            switch (currentName)
             {
-                Debug.Log(lastSelected + " selected twice consecutively");
-                powerupManager.SetPowerupType(lastSelected); // Notify PowerupManager
+                case "Fall":
+                    type = PowerupType.SQUARE; break;
+                case "Bomb":
+                    type = PowerupType.CIRCLE; break;
+                case "Wall":
+                    type = PowerupType.TRIANGLE; break;
+                default: type = PowerupType.NONE; break;
             }
+
+            powerupManager.SetPowerupType(type); // Notify PowerupManager
 
             // Restart the movement coroutine
             moveCoroutine = StartCoroutine(MoveBox());
@@ -62,7 +66,7 @@ public class GridBoxMover : MonoBehaviour
             currentIndex = (currentIndex + 1) % gridPoints.Length; // Loop back to the start
 
             // Wait for the specified speed duration before moving again
-            yield return new WaitForSeconds(speed);
+            yield return new WaitForSeconds(timeBtwnSwitch);
         }
     }
 }

@@ -18,9 +18,7 @@ public class PowerupManager : MonoBehaviour
     [SerializeField] private string usePowerupKey;
     [Range(0f, 1f)][SerializeField] private float spawnDelay = 0.1f;
 
-    // TEMP;
-    [Header("Temp")]
-    [SerializeField] private PowerupType currentPowerup = PowerupType.NONE;
+    private PowerupType currentPowerup = PowerupType.NONE;
 
     [Header("Powerup Objects")]
     [SerializeField] private Circle_Powerup circleExplosion;
@@ -44,25 +42,9 @@ public class PowerupManager : MonoBehaviour
         }
     }
 
-    public void SetPowerupType(string selectedPowerup)
+    public void SetPowerupType(PowerupType type)
     {
-        switch (selectedPowerup)
-        {
-            case "Fall":
-                currentPowerup = PowerupType.SQUARE;
-                break;
-            case "Wall":
-                currentPowerup = PowerupType.TRIANGLE;
-                break;
-            case "Bomb":
-                currentPowerup = PowerupType.CIRCLE;
-                break;
-            default:
-                currentPowerup = PowerupType.NONE;
-                break;
-        }
-
-        Debug.Log("Powerup type set to: " + currentPowerup);
+        currentPowerup = type;
     }
 
     IEnumerator UsePowerup()
