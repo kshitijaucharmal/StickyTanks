@@ -7,6 +7,7 @@ public class BillBoard : MonoBehaviour
 
     private Transform camera;
     [SerializeField] private Vector3 rotOffset = Vector3.zero;
+    [SerializeField] private Vector3 posOffset = Vector3.zero;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class BillBoard : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        transform.position = transform.parent.position + posOffset;
         transform.LookAt(camera);
         transform.Rotate(rotOffset, Space.Self);
     }

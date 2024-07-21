@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -20,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool canUsePowerup = true;
     [HideInInspector] public Health health;
     public HealthBar healthbar;
-
 
     void Start()
     {
@@ -53,19 +50,15 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation * offsetRot, rotationSpeed * Time.deltaTime);
 
 
-        if (Vector3.Distance(transform.position, lastPosition) > maxdistpoints)
-        {
+        if (Vector3.Distance(transform.position, lastPosition) > maxdistpoints) {
             lastPosition = transform.position;
             positions.Enqueue(transform.position);
-            if (positions.Count > maxPoints)
-            {
+            if (positions.Count > maxPoints) {
                 positions.Dequeue();
             }
             lineRenderer.positionCount = positions.Count;
             lineRenderer.SetPositions(positions.ToArray());
         }
-        
-
     }
 
     public void ResetPositions()
