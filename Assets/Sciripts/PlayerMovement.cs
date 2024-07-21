@@ -21,8 +21,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+
         healthbar.SetMaxHealth(100);
-        health = new Health(100,healthbar);
+        health = new Health(100,healthbar,gameObject);
         lastPosition = transform.position;
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 1;
@@ -58,6 +59,11 @@ public class PlayerMovement : MonoBehaviour
             }
             lineRenderer.positionCount = positions.Count;
             lineRenderer.SetPositions(positions.ToArray());
+        }
+        //to kill player on falling down
+        if (gameObject.transform.position.y < -1)
+        {
+            health.Die();
         }
     }
 

@@ -5,17 +5,24 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class ResponsiveCamera : MonoBehaviour
 {
-
     [SerializeField] private Transform player1;
     [SerializeField] private Transform player2;
 
     [SerializeField] private float zoomLimit = -4;
 
-    private void Start() {
-        
+    private void Start()
+    {
+
     }
 
-    private void Update() {
+    private void Update()
+    {
+        if (player1 == null || player2 == null)
+        {
+            // One of the players is destroyed, stop further execution
+            return;
+        }
+
         var dist = Vector3.Distance(player1.position, player2.position);
         var zoomVal = Mathf.Clamp(-dist, float.NegativeInfinity, zoomLimit);
 
@@ -29,5 +36,4 @@ public class ResponsiveCamera : MonoBehaviour
 
         transform.localPosition = Vector3.Lerp(transform.localPosition, pos, 0.08f);
     }
-
 }

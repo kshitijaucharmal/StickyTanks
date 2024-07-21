@@ -1,13 +1,23 @@
+using Unity.VisualScripting;
 using UnityEngine;
 public class Health 
 {
     int maxHealth;
     int currentHealth;
+    GameObject player;
     private HealthBar healthbar;
-    public Health(int maxHealth, HealthBar healthbar){
+    public bool isDead = false;
+    public Health(int maxHealth, HealthBar healthbar, GameObject player)
+    {
         this.maxHealth = maxHealth;
         this.healthbar = healthbar;
+        this.player = player;   
         currentHealth = maxHealth;
+    }
+
+    void Start()
+    {
+        PlayerMovement movement = player.GetComponent<PlayerMovement>();
     }
     public int GetHealth(){
         return currentHealth;
@@ -29,7 +39,10 @@ public class Health
         }
         healthbar.SetHealth(currentHealth);
     }
-    void Die(){
-        Debug.Log("Dead");
-    } 
+    public void Die(){
+        Debug.Log(player.name+ " is Dead");
+        Object.Destroy(player);
+        isDead = true;
+        GameManager.Instance.CheckWinner();
+    }
 }
