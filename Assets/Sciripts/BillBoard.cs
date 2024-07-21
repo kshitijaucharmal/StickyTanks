@@ -6,6 +6,7 @@ public class BillBoard : MonoBehaviour
 {
 
     private Transform camera;
+    [SerializeField] private Vector3 rotOffset = Vector3.zero;
 
     private void Start()
     {
@@ -16,5 +17,6 @@ public class BillBoard : MonoBehaviour
     void LateUpdate()
     {
         transform.LookAt(camera);
+        transform.Rotate(rotOffset, Space.Self);
     }
 }
