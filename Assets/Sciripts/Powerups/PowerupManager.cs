@@ -70,6 +70,7 @@ public class PowerupManager : MonoBehaviour
     IEnumerator UsePowerup()
     {
         playerMovement.canUsePowerup = false;
+        bool audioPlayed = false;
         // Get Points from trail script
         var points = playerMovement.positions.ToArray();
         foreach (Vector3 pointPos in points)
@@ -83,7 +84,11 @@ public class PowerupManager : MonoBehaviour
             else if (currentPowerup == PowerupType.SQUARE)
             {
                 var powerupPrefab = squareHole;
-                audioManager.Play("square");
+                if (!audioPlayed && audioManager != null)
+                    {
+                        audioManager.Play("square");
+                        audioPlayed = true;
+                    }
                 var powerup = Instantiate(powerupPrefab, pointPos, Quaternion.identity);
 
             }
@@ -100,6 +105,7 @@ public class PowerupManager : MonoBehaviour
             Debug.Log("Powerup Spawned: " + currentPowerup);
             yield return new WaitForSeconds(spawnDelay);
         }
+        
         playerMovement.canUsePowerup = true;
         playerMovement.ResetPositions();
     }

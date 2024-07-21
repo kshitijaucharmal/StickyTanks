@@ -1042,6 +1042,7 @@ MonoBehaviour:
   p_vertical: P2Vertical
   canUsePowerup: 1
   healthbar: {fileID: 1789767209}
+  audioManager: {fileID: 1624488359}
 --- !u!114 &650003275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2340,9 +2341,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: square
-    clip: {fileID: 8300000, guid: aeffd29bf6dcfee4a9fddafc02cbd813, type: 3}
+    clip: {fileID: 8300000, guid: 733461015bb63eb4bbeefbc4b631f525, type: 3}
     volume: 1
+    pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: Tank_move
+    clip: {fileID: 8300000, guid: 3f1b79721bf5cd44a9a91af68cabd62c, type: 3}
+    volume: 0.2
+    pitch: 0.8
+    loop: 1
+    source: {fileID: 0}
+  - name: Tank_idel
+    clip: {fileID: 8300000, guid: ff47502de0713384e9034b944938d09e, type: 3}
+    volume: 0.2
+    pitch: 0.8
+    loop: 1
     source: {fileID: 0}
 --- !u!4 &1624488360
 Transform:
@@ -3540,7 +3554,7 @@ MonoBehaviour:
     type: 3}
   squareHole: {fileID: 836416905184613822, guid: b9861762e6b314e7cac8251c98f2bf14,
     type: 3}
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 1624488359}
 --- !u!114 &2067904770663019819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3562,6 +3576,7 @@ MonoBehaviour:
   p_vertical: P1Vertical
   canUsePowerup: 1
   healthbar: {fileID: 604308196}
+  audioManager: {fileID: 1624488359}
 --- !u!33 &2455866681681242629
 MeshFilter:
   m_ObjectHideFlags: 0
