@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using Unity.VisualScripting;
 
 public enum PowerupType
 {
@@ -70,12 +68,12 @@ public class PowerupManager : MonoBehaviour
                 var powerupPrefab = triangleWall;
                 var powerup = Instantiate(powerupPrefab, pointPos, Quaternion.identity);
             }
-            else
+            else if (currentPowerup == PowerupType.NONE)
             {
-                Debug.Log("You don't have any powerup");
+                playerMovement.health.TakeDamage(10);
+                break;
             }
 
-            Debug.Log("Powerup Spawned: " + currentPowerup);
             yield return new WaitForSeconds(spawnDelay);
         }
         playerMovement.canUsePowerup = true;

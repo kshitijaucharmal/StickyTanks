@@ -7,12 +7,22 @@ public class ResponsiveCamera : MonoBehaviour
 {
     [SerializeField] private Transform player1;
     [SerializeField] private Transform player2;
+    [SerializeField] private Transform lookAtTarget;
 
     [SerializeField] private float zoomLimit = -4;
+    [Range(0f, 1f)][SerializeField] private float smoothing = 0.1f;
 
-    private void Start()
+    [HideInInspector] public bool gamePaused = true;
+
+    private Vector3 middle;
+
+    Vector3 SetLookAtTarget()
     {
-
+        if(gamePaused)
+        {
+            return lookAtTarget.position;
+        }
+        return (player1.position + player2.position) / 2;
     }
 
     private void Update()
@@ -26,7 +36,7 @@ public class ResponsiveCamera : MonoBehaviour
         var dist = Vector3.Distance(player1.position, player2.position);
         var zoomVal = Mathf.Clamp(-dist, float.NegativeInfinity, zoomLimit);
 
-        var middle = (player1.position + player2.position) / 2;
+        middle = Vector3.Lerp(middle, SetLookAtTarget(), smoothing);
         transform.LookAt(middle);
 
         var pos = transform.localPosition;

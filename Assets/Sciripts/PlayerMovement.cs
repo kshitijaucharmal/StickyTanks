@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-
         healthbar.SetMaxHealth(100);
         health = new Health(100,healthbar,gameObject);
         lastPosition = transform.position;
@@ -37,6 +36,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //to kill player on falling down
+        if (transform.position.y < -1) {
+            health.Die();
+        }
         float moveHorizontal = Input.GetAxisRaw(p_horizontal);
         float moveVertical = Input.GetAxisRaw(p_vertical);
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical).normalized;
@@ -59,11 +62,6 @@ public class PlayerMovement : MonoBehaviour
             }
             lineRenderer.positionCount = positions.Count;
             lineRenderer.SetPositions(positions.ToArray());
-        }
-        //to kill player on falling down
-        if (gameObject.transform.position.y < -1)
-        {
-            health.Die();
         }
     }
 

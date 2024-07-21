@@ -41,8 +41,9 @@ public class Health
     }
     public void Die(){
         Debug.Log(player.name+ " is Dead");
-        Object.Destroy(player);
         isDead = true;
         GameManager.Instance.CheckWinner();
+
+        Object.Destroy(player);
     }
 }

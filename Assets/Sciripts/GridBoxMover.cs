@@ -58,8 +58,8 @@ public class GridBoxMover : MonoBehaviour
         GridItem currentItem = gridPoints[idx];
 
         // Apply effect instantiate
-        RawImage img = Instantiate(applyEffectPrefab, applyEffectCanvas).GetComponent<RawImage>();
-        img.texture = currentItem.GetComponent<RawImage>().texture;
+        Image img = Instantiate(applyEffectPrefab, applyEffectCanvas).GetComponent<Image>();
+        img.sprite = currentItem.GetComponent<Image>().sprite;
 
         PowerupType currentPowerup = currentItem.type;
 
