@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Belt
+    second: {fileID: 2100000, guid: b6d232bd3d57e9949b52f4d5eb58c08d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Material.006
     second: {fileID: 2100000, guid: 3763740ebdb68df2686e40ab89325ef2, type: 2}
   - first:
@@ -19,6 +24,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Material.008
     second: {fileID: 2100000, guid: 935b4bd0a725d6d229b4a96469974c01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shooter
+    second: {fileID: 2100000, guid: 864b661fd0df33442b0266e834b017a4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
