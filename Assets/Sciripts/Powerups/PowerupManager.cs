@@ -28,7 +28,9 @@ public class PowerupManager : MonoBehaviour
     [SerializeField] private GameObject squareHole;
 
     private PlayerMovement playerMovement;
-
+    public AudioManager audioManager;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -81,7 +83,9 @@ public class PowerupManager : MonoBehaviour
             else if (currentPowerup == PowerupType.SQUARE)
             {
                 var powerupPrefab = squareHole;
+                audioManager.Play("square");
                 var powerup = Instantiate(powerupPrefab, pointPos, Quaternion.identity);
+
             }
             else if (currentPowerup == PowerupType.TRIANGLE)
             {
