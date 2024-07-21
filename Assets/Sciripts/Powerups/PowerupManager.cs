@@ -24,7 +24,9 @@ public class PowerupManager : MonoBehaviour
     [SerializeField] private GameObject squareHole;
 
     private PlayerMovement playerMovement;
-
+    public AudioManager audioManager;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,7 @@ public class PowerupManager : MonoBehaviour
     IEnumerator UsePowerup()
     {
         playerMovement.canUsePowerup = false;
+        bool audioPlayed = false;
         // Get Points from trail script
         var points = playerMovement.positions.ToArray();
         foreach (Vector3 pointPos in points)
@@ -61,7 +64,13 @@ public class PowerupManager : MonoBehaviour
             else if (currentPowerup == PowerupType.SQUARE)
             {
                 var powerupPrefab = squareHole;
+                if (!audioPlayed && audioManager != null)
+                    {
+                        audioManager.Play("square");
+                        audioPlayed = true;
+                    }
                 var powerup = Instantiate(powerupPrefab, pointPos, Quaternion.identity);
+
             }
             else if (currentPowerup == PowerupType.TRIANGLE)
             {
@@ -76,6 +85,7 @@ public class PowerupManager : MonoBehaviour
 
             yield return new WaitForSeconds(spawnDelay);
         }
+        
         playerMovement.canUsePowerup = true;
         playerMovement.ResetPositions();
     }

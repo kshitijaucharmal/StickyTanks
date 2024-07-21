@@ -12,6 +12,7 @@ public class Square_Powerup : MonoBehaviour {
         foreach(Collider nearObj in colliders){
             if(nearObj.CompareTag("GroundTile")){
                 if(nearObj.GetComponent<Rigidbody>() == null) nearObj.AddComponent<Rigidbody>();
+                GetComponent<AudioSource>().Play();
             }
         }
         Destroy(gameObject);

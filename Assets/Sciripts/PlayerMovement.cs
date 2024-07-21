@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public Health health;
     public HealthBar healthbar;
 
+    public AudioManager audioManager;
+    private bool isMoving = false;
     void Start()
     {
         healthbar.SetMaxHealth(100);
@@ -31,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
         lineRenderer.material.color = Color.black;
         lineRenderer.useWorldSpace = true;
         lineRenderer.SetPosition(0, transform.position);
+        audioManager.Play("Tank_idel");
+        
     }
 
     // Update is called once per frame
@@ -46,13 +50,24 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(movement * speed * Time.deltaTime, Space.World);
         if (movement == Vector3.zero)
         {
+            if (isMoving)
+            {
+                isMoving = false;
+                audioManager.Stop("Tank_move");
+                audioManager.Play("Tank_idel");
+            }
             canUsePowerup = true;
             return;
         }
-
+        if (!isMoving)
+        {
+            isMoving = true;
+            audioManager.Stop("Tank_idel");
+            audioManager.Play("Tank_move");
+        }
         Quaternion targetRotation = Quaternion.LookRotation(movement, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation * offsetRot, rotationSpeed * Time.deltaTime);
-
+        
 
         if (Vector3.Distance(transform.position, lastPosition) > maxdistpoints) {
             lastPosition = transform.position;
