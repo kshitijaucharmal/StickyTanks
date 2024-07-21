@@ -192,7 +192,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 330585545}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2036,6 +2036,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SlotMachCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638035354792817414, guid: bca3a9422543ef54cb325d3351c7232f,
+        type: 3}
+      propertyPath: slot_button
+      value: P2_Use
       objectReference: {fileID: 0}
     - target: {fileID: 8638035354792817414, guid: bca3a9422543ef54cb325d3351c7232f,
         type: 3}

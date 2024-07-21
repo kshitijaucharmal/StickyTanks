@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5463837324232716304}
   - component: {fileID: 8331749014964771366}
   - component: {fileID: 4194108894476462455}
+  - component: {fileID: 5253574390852486473}
   m_Layer: 5
   m_Name: Fall
   m_TagString: Untagged
@@ -72,6 +73,19 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &5253574390852486473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238319379095151364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d879196a5b4e284097e7fd15c108d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &382439320183010988
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,6 +97,7 @@ GameObject:
   - component: {fileID: 771525068940515590}
   - component: {fileID: 1560556394155549386}
   - component: {fileID: 1658238627118599921}
+  - component: {fileID: 4705162922662725133}
   m_Layer: 5
   m_Name: gridpoint (6)
   m_TagString: Untagged
@@ -144,6 +159,19 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &4705162922662725133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382439320183010988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d879196a5b4e284097e7fd15c108d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
 --- !u!1 &403644987635638865
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +183,7 @@ GameObject:
   - component: {fileID: 2576520206465307122}
   - component: {fileID: 6589633833964422426}
   - component: {fileID: 3399351546059558062}
+  - component: {fileID: 5198604392896323891}
   m_Layer: 5
   m_Name: gridpoint (2)
   m_TagString: Untagged
@@ -216,6 +245,19 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &5198604392896323891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403644987635638865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d879196a5b4e284097e7fd15c108d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
 --- !u!1 &3337695467012142930
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +269,7 @@ GameObject:
   - component: {fileID: 6017917784546962381}
   - component: {fileID: 1882337172602177945}
   - component: {fileID: 3763337517095008705}
+  - component: {fileID: 8433369277754085405}
   m_Layer: 5
   m_Name: gridpoint (1)
   m_TagString: Untagged
@@ -288,6 +331,19 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &8433369277754085405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337695467012142930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d879196a5b4e284097e7fd15c108d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
 --- !u!1 &3958181860811452427
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,14 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612ffc602b32deb4abcd2113c3be5bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridPoints:
-  - {fileID: 3019100129873039956}
-  - {fileID: 6017917784546962381}
-  - {fileID: 2576520206465307122}
-  - {fileID: 3575903255919765750}
-  - {fileID: 1925109904800998683}
-  - {fileID: 5463837324232716304}
-  - {fileID: 771525068940515590}
+  gridUI: {fileID: 5317275570546073441}
   slot_button: P1_Use
   timeBtwnSwitch: 0.3
   powerupManager: {fileID: 0}
@@ -395,6 +444,7 @@ GameObject:
   - component: {fileID: 3575903255919765750}
   - component: {fileID: 3996059969986991831}
   - component: {fileID: 6080928127659007115}
+  - component: {fileID: 6461822573813750581}
   m_Layer: 5
   m_Name: Bomb
   m_TagString: Untagged
@@ -456,6 +506,19 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &6461822573813750581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221761800970258208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d879196a5b4e284097e7fd15c108d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &5838905990408468336
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +688,7 @@ GameObject:
   - component: {fileID: 3019100129873039956}
   - component: {fileID: 1995748223850496549}
   - component: {fileID: 118962964752105469}
+  - component: {fileID: 264300882190221835}
   m_Layer: 5
   m_Name: Wall
   m_TagString: Untagged
@@ -686,6 +750,19 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &264300882190221835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485083209805517992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d879196a5b4e284097e7fd15c108d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
 --- !u!1 &7526718701257750576
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +774,7 @@ GameObject:
   - component: {fileID: 1925109904800998683}
   - component: {fileID: 8590578930122533035}
   - component: {fileID: 618591535159613069}
+  - component: {fileID: 7546292708311036513}
   m_Layer: 5
   m_Name: gridpoint (4)
   m_TagString: Untagged
@@ -758,6 +836,19 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &7546292708311036513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526718701257750576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d879196a5b4e284097e7fd15c108d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
 --- !u!1 &7926596345380792708
 GameObject:
   m_ObjectHideFlags: 0

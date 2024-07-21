@@ -1,9 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GridBoxMover : MonoBehaviour
 {
-    public Transform[] gridPoints; // Array of grid points to move between
+    public Transform gridUI;
     public string slot_button;
     public float timeBtwnSwitch = 1.0f; // Time in seconds between movements
     public PowerupManager powerupManager; // Reference to PowerupManager
@@ -12,21 +13,26 @@ public class GridBoxMover : MonoBehaviour
     private bool isMoving = true;
     private Coroutine moveCoroutine;
     private string lastSelected = "";
+    private List<GridItem> gridPoints = new List<GridItem>(); // Array of grid points to move between
 
     void Start()
     {
-        // Set the box's initial position to the first grid point
-        if (gridPoints.Length > 0)
+        foreach(Transform t in gridUI)
         {
-            transform.position = gridPoints[0].position;
+            gridPoints.Add(t.GetComponent<GridItem>());
+        }
+        // Set the box's initial position to the first grid point
+        if (gridPoints.Count > 0)
+        {
+            transform.position = gridPoints[0].transform.position;
             moveCoroutine = StartCoroutine(MoveBox());
         }
+
     }
 
     void Update()
     {
-        if (Input.GetButtonDown(slot_button))
-        {
+        if (Input.GetButtonDown(slot_button)) {
             if (moveCoroutine != null)
             {
                 StopCoroutine(moveCoroutine);
@@ -34,21 +40,9 @@ public class GridBoxMover : MonoBehaviour
 
             // Log the current grid point name 
             // Shoudn't use name
-            string currentName = gridPoints[currentIndex].name;
+            PowerupType currentPowerup = gridPoints[currentIndex].type;
 
-            PowerupType type = PowerupType.NONE;
-            switch (currentName)
-            {
-                case "Fall":
-                    type = PowerupType.SQUARE; break;
-                case "Bomb":
-                    type = PowerupType.CIRCLE; break;
-                case "Wall":
-                    type = PowerupType.TRIANGLE; break;
-                default: type = PowerupType.NONE; break;
-            }
-
-            powerupManager.SetPowerupType(type); // Notify PowerupManager
+            powerupManager.SetPowerupType(currentPowerup); // Notify PowerupManager
 
             // Restart the movement coroutine
             moveCoroutine = StartCoroutine(MoveBox());
@@ -60,10 +54,10 @@ public class GridBoxMover : MonoBehaviour
         while (isMoving)
         {
             // Snap to the current grid point
-            transform.position = gridPoints[currentIndex].position;
+            transform.position = gridPoints[currentIndex].transform.position;
 
             // Move to the next grid point
-            currentIndex = (currentIndex + 1) % gridPoints.Length; // Loop back to the start
+            currentIndex = (currentIndex + 1) % gridPoints.Count; // Loop back to the start
 
             // Wait for the specified speed duration before moving again
             yield return new WaitForSeconds(timeBtwnSwitch);
