@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571328, b: 0.3069218, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1042,7 +1041,7 @@ MonoBehaviour:
   p_vertical: P2Vertical
   canUsePowerup: 1
   healthbar: {fileID: 1789767209}
-  audioManager: {fileID: 1624488359}
+  audioManager: {fileID: 0}
 --- !u!114 &650003275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1065,7 +1064,7 @@ MonoBehaviour:
     type: 3}
   squareHole: {fileID: 836416905184613822, guid: b9861762e6b314e7cac8251c98f2bf14,
     type: 3}
-  audioManager: {fileID: 1624488359}
+  audioManager: {fileID: 0}
 --- !u!120 &650003276
 LineRenderer:
   serializedVersion: 2
@@ -2310,75 +2309,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 956996025}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1624488358
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1624488360}
-  - component: {fileID: 1624488359}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1624488359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624488358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84f0f7b9171e9974bb078b2a6f0beb90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: square
-    clip: {fileID: 8300000, guid: 733461015bb63eb4bbeefbc4b631f525, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Tank_move
-    clip: {fileID: 8300000, guid: b445757b4ca21a045beb92129ac71522, type: 3}
-    volume: 0.25
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Tank_idel
-    clip: {fileID: 8300000, guid: d3c184f431a453240b72585bb6288722, type: 3}
-    volume: 0.25
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Theme
-    clip: {fileID: 8300000, guid: 7e75cf7e087aa704196d3c55200bf01b, type: 3}
-    volume: 0.2
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
---- !u!4 &1624488360
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624488358}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3258824, y: 0.15375087, z: 0.092877835}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1699361105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3560,7 +3490,7 @@ MonoBehaviour:
     type: 3}
   squareHole: {fileID: 836416905184613822, guid: b9861762e6b314e7cac8251c98f2bf14,
     type: 3}
-  audioManager: {fileID: 1624488359}
+  audioManager: {fileID: 0}
 --- !u!114 &2067904770663019819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3582,7 +3512,7 @@ MonoBehaviour:
   p_vertical: P1Vertical
   canUsePowerup: 1
   healthbar: {fileID: 604308196}
-  audioManager: {fileID: 1624488359}
+  audioManager: {fileID: 0}
 --- !u!33 &2455866681681242629
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3826,4 +3756,3 @@ SceneRoots:
   - {fileID: 1727549106316128156}
   - {fileID: 650003279}
   - {fileID: 115920738}
-  - {fileID: 1624488360}
