@@ -9,13 +9,15 @@ public class ResponsiveCamera : MonoBehaviour
     [SerializeField] private Transform player1;
     [SerializeField] private Transform player2;
 
+    [SerializeField] private float zoomLimit = -4;
+
     private void Start() {
         
     }
 
     private void Update() {
         var dist = Vector3.Distance(player1.position, player2.position);
-        var zoomVal = -dist;
+        var zoomVal = Mathf.Clamp(-dist, float.NegativeInfinity, zoomLimit);
 
         var middle = (player1.position + player2.position) / 2;
         transform.LookAt(middle);
