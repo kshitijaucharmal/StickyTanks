@@ -2347,15 +2347,21 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Tank_move
-    clip: {fileID: 8300000, guid: 3f1b79721bf5cd44a9a91af68cabd62c, type: 3}
-    volume: 0.2
-    pitch: 0.8
+    clip: {fileID: 8300000, guid: b445757b4ca21a045beb92129ac71522, type: 3}
+    volume: 0.25
+    pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Tank_idel
-    clip: {fileID: 8300000, guid: ff47502de0713384e9034b944938d09e, type: 3}
+    clip: {fileID: 8300000, guid: d3c184f431a453240b72585bb6288722, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Theme
+    clip: {fileID: 8300000, guid: 7e75cf7e087aa704196d3c55200bf01b, type: 3}
     volume: 0.2
-    pitch: 0.8
+    pitch: 1
     loop: 1
     source: {fileID: 0}
 --- !u!4 &1624488360
